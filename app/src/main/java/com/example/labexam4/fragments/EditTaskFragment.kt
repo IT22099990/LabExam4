@@ -34,7 +34,7 @@ class EditTaskFragment : Fragment(R.layout.fragment_edit_task), MenuProvider {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         editTaskBinding = FragmentEditTaskBinding.inflate(inflater, container, false)
         return binding.root

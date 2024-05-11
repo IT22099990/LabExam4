@@ -30,7 +30,7 @@ class AddTaskFragment : Fragment(R.layout.fragment_add_task), MenuProvider {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         addTaskBinding = FragmentAddTaskBinding.inflate(inflater, container, false)
         return binding.root
