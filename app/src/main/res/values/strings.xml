@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Task Manager</string>
+    <string name="app_name">My ToDo</string>
     <string name="addBtn">image</string>
     <string name="noTask">No Tasks Available.Click + to add Tasks</string>
 
