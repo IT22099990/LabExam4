@@ -51,13 +51,15 @@ class EditTaskFragment : Fragment(R.layout.fragment_edit_task), MenuProvider {
 
         binding.editTaskTitle.setText(currentTask.taskTitle)
         binding.editTaskDesc.setText(currentTask.taskDesc)
+        binding.editTaskDate.setText(currentTask.taskDate)
 
         binding.editTaskFab.setOnClickListener {   //if user wants to edit
             val taskTitle = binding.editTaskTitle.text.toString().trim()
             val taskDesc = binding.editTaskDesc.text.toString().trim()
+            val taskDate = binding.editTaskDate.text.toString().trim()
 
             if (taskTitle.isNotEmpty()){
-                val task = Task(currentTask.id, taskTitle, taskDesc)
+                val task = Task(currentTask.id, taskTitle, taskDesc, taskDate)
                 tasksViewModel.updateTask(task)
                 view.findNavController().popBackStack(R.id.homeFragment,false)
             }

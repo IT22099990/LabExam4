@@ -20,6 +20,7 @@ class TaskAdapter : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
         override fun areItemsTheSame(oldItem: Task, newItem: Task): Boolean{
             return oldItem.id == newItem.id &&
                     oldItem.taskDesc == newItem.taskDesc &&
+                    oldItem.taskDate == newItem.taskDate &&
                     oldItem.taskTitle == newItem.taskTitle
         }
 
@@ -44,6 +45,7 @@ class TaskAdapter : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
         val currentTask = differ.currentList[position]
 
         holder.itemBinding.taskTitle.text = currentTask.taskTitle
+        holder.itemBinding.taskDate.text = currentTask.taskDate
         holder.itemBinding.taskDesc.text = currentTask.taskDesc
 
         holder.itemView.setOnClickListener{
