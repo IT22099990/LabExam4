@@ -13,7 +13,7 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.labexam4.MainActivity
 import com.example.labexam4.R
 import com.example.labexam4.adapter.TaskAdapter
@@ -68,7 +68,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
     private fun setupHomeRecyclerView(){
         tasksAdapter = TaskAdapter()
         binding.homeRecyclerView.apply{
-            layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
+            layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
             adapter = tasksAdapter
         }
