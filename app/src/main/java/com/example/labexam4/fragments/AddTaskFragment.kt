@@ -8,6 +8,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
 import android.widget.Toast
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
@@ -49,11 +50,21 @@ class AddTaskFragment : Fragment(R.layout.fragment_add_task), MenuProvider {
 
     private fun saveTask(view: View){
         val taskTitle = binding.addTaskTitle.text.toString().trim()
-        val taskDesc = binding.addTaskDesc.text.toString().trim()
         val taskDate = binding.addTaskDate.text.toString().trim()
+        val taskDesc = binding.addTaskDesc.text.toString().trim()
+        val selectedRadioButtonId = binding.addPriorityRadioGroup.checkedRadioButtonId
+        var priority = ""  //initialize a variable for priority
+
+        // Check if a RadioButton is selected
+        priority = if (selectedRadioButtonId != -1) {
+            val selectedRadioButton = view.findViewById<RadioButton>(selectedRadioButtonId)
+            selectedRadioButton.text.toString()
+        } else {
+            "Not Specified"
+        }
 
         if(taskTitle.isNotEmpty()){
-            val task = Task(0, taskTitle, taskDesc, taskDate)
+            val task = Task(0, taskTitle, taskDate, priority, taskDesc)
             tasksViewModel.addTask(task)
 
             Toast.makeText(addTaskView.context, "Task Saved", Toast.LENGTH_SHORT).show()

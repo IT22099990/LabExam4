@@ -18,7 +18,7 @@
             android:backgroundTint="@color/purple"
             android:clickable="true"
             android:contentDescription="@string/addBtn"
-            android:tintMode="@color/white"
+            android:tintMode="@color/lightPurple"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/baseline_add_24" />

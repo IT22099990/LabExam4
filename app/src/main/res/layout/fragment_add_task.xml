@@ -49,6 +49,49 @@
             android:maxLines="1"
             android:fontFamily="@font/bree_serif"/>
 
+        <TextView
+            android:id="@+id/addTaskPriority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bree_serif"
+            android:layout_below="@id/addTaskDate"
+            android:padding="12dp"
+            android:text="Priority"
+            android:textColor="@color/purple"
+            android:textSize="20sp" />
+
+        <RadioGroup
+            android:id="@+id/addPriorityRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/addTaskPriority">
+
+            <RadioButton
+                android:id="@+id/lowPriority"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Low"
+                android:layout_weight="1"
+                android:fontFamily="@font/bree_serif"/>
+
+            <RadioButton
+                android:id="@+id/mediumPriority"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Medium"
+                android:layout_weight="1"
+                android:fontFamily="@font/bree_serif"/>
+
+            <RadioButton
+                android:id="@+id/highPriority"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="High"
+                android:layout_weight="1"
+                android:fontFamily="@font/bree_serif"/>
+        </RadioGroup>
+
         <EditText
             android:id="@+id/addTaskDesc"
             android:layout_width="match_parent"
@@ -59,7 +102,7 @@
             android:textSize="18sp"
             android:fontFamily="@font/bree_serif"
             android:background="@drawable/app_border"
-            android:layout_below="@id/addTaskDate"
+            android:layout_below="@id/addPriorityRadioGroup"
             android:layout_marginTop="12dp" />
 
     </RelativeLayout>

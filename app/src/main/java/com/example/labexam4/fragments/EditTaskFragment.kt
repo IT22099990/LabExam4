@@ -50,22 +50,39 @@ class EditTaskFragment : Fragment(R.layout.fragment_edit_task), MenuProvider {
         currentTask = args.task!!
 
         binding.editTaskTitle.setText(currentTask.taskTitle)
-        binding.editTaskDesc.setText(currentTask.taskDesc)
         binding.editTaskDate.setText(currentTask.taskDate)
+        binding.editTaskDesc.setText(currentTask.taskDesc)
+
+        //show the priority before edit
+        when (currentTask.priorityRadioGroup) {
+            "Low" -> binding.editlowPriority.isChecked = true
+            "Medium" -> binding.editmediumPriority.isChecked = true
+            "High" -> binding.edithighPriority.isChecked = true
+        }
 
         binding.editTaskFab.setOnClickListener {   //if user wants to edit
             val taskTitle = binding.editTaskTitle.text.toString().trim()
-            val taskDesc = binding.editTaskDesc.text.toString().trim()
             val taskDate = binding.editTaskDate.text.toString().trim()
+            val priorityRadioGroup = getSelectedPriority()
+            val taskDesc = binding.editTaskDesc.text.toString().trim()
 
             if (taskTitle.isNotEmpty()){
-                val task = Task(currentTask.id, taskTitle, taskDesc, taskDate)
+                val task = Task(currentTask.id, taskTitle, taskDate, priorityRadioGroup, taskDesc)
                 tasksViewModel.updateTask(task)
                 view.findNavController().popBackStack(R.id.homeFragment,false)
             }
             else{
                 Toast.makeText(context, "Please enter task title", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    private fun getSelectedPriority(): String {
+        return when {
+            binding.editlowPriority.isChecked -> "Low"
+            binding.editmediumPriority.isChecked -> "Medium"
+            binding.edithighPriority.isChecked -> "High"
+            else -> "" // Return an empty string if no RadioButton is checked
         }
     }
 

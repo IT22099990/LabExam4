@@ -11,6 +11,7 @@ data class Task(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val taskTitle : String,
-    val taskDesc: String,
-    val taskDate: String
+    val taskDate: String,
+    val priorityRadioGroup: String,
+    val taskDesc: String
 ): Parcelable
