@@ -33,12 +33,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/emptyTasksImage"
             android:visibility="gone"
-            android:src="@drawable/notasks"/>
+            android:textColor="@color/purple"
+            android:fontFamily="@font/bree_serif"
+            android:text="No Tasks Available.Click + to add Tasks"
+            android:textStyle="bold"
+            android:textSize="40sp"
+            android:textAlignment="center"
+            android:padding="20sp"
+            android:layout_marginTop="200dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
